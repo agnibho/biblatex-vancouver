@@ -27,6 +27,7 @@
 
 \RequirePackage{ifthen}
 
+% Set default bibliography options
 \ExecuteBibliographyOptions{
 	sorting=none,
 	giveninits=true,
@@ -35,12 +36,15 @@
 	maxbibnames=99
 }
 
+% Remove unwanted punctuations
 \renewcommand*{\revsdnamepunct}{}
 \renewcommand*{\finentrypunct}{}
 \renewcommand*{\bibpagespunct}{\addspace}
 
+% Remove 'in:' string
 \renewbibmacro{in:}{}
 
+% Provide three letter month names
 \newcommand*{\shortmonth}[1]{
 	\ifthenelse{\NOT\equal{#1}{}}{
 		\ifcase#1\relax
@@ -60,8 +64,10 @@
 	}
 }
 
+% Family name first
 \DeclareNameAlias{default}{family-given}
 
+% Remove unwanted formatting
 \DeclareFieldFormat*{title}{#1}
 \DeclareFieldFormat*{journaltitle}{#1}
 \DeclareFieldFormat*{labelnumberwidth}{#1\adddot}
@@ -80,6 +86,7 @@
 	\thefield{urlday}{]}
 }
 
+% Some string replacements
 \DeclareSourcemap{
 	\maps[datatype=bibtex]{
 		\map[overwrite=true]{
@@ -89,7 +96,8 @@
 	}
 }
 
-%no number in ouput of bibliography
+% Code adapted from biblatex-nejm package
+
 \renewbibmacro*{volume+number+eid}{
 	\printfield{volume}
 	\printfield{number}
