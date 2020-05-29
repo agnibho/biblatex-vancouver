@@ -28,6 +28,11 @@ BibLaTex Vancouver can be included in your LaTex document as a style argument.
 Example:
     \usepackage[backend=biber,style=vancouver]{biblatex}
 
+Acknowledgment
+--------------
+
+Some part of the code has been adapted from the biblatex-nejm package.
+
 Licensing
 ---------
 
