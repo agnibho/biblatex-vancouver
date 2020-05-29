@@ -73,7 +73,8 @@
 \DeclareFieldFormat*{labelnumberwidth}{#1\adddot}
 \DeclareFieldFormat*{pages}{:\mkcomprange{#1}}
 \DeclareFieldFormat*{url}{Available from: \url{#1}}
-\DeclareFieldFormat*[article]{number}{(#1)}
+\DeclareFieldFormat*[article]{issue}{(#1)}
+\DeclareFieldFormat*[article]{eid}{(#1)}
 \DeclareFieldFormat*{date}{
 	\thefield{year}\addspace
 	\shortmonth{\thefield{month}}\addspace
@@ -99,28 +100,27 @@
 % Code adapted from biblatex-nejm package
 
 \renewbibmacro*{volume+number+eid}{
-	\printfield{volume}
-	\printfield{number}
-	\printfield{eid}
+	\printfield{volume}%
+	\printfield{issue}%
+	\printfield{eid}%
 }
 
 %Order year;volume:page
 \renewbibmacro*{issue+date}{
-	\printfield{issue}
-	\setunit*{\addspace}
-	\usebibmacro{date}
-	\newunit
+	\setunit*{\addspace}%
+	\usebibmacro{date}%
+	\newunit%
 }
 
 \renewbibmacro*{journal+issuetitle}{
-	\usebibmacro{journal}
+	\usebibmacro{journal}%
 	\iffieldundef{series}
 	{}
 	{\newunit
-	\printfield{series}}
-	\setunit*{\addspace}
-	\usebibmacro{issue+date}
-	\setunit*{\addsemicolon\addspace}
-	\usebibmacro{volume+number+eid}
-	\usebibmacro{issue}
+	\printfield{series}}%
+	\setunit*{\addspace}%
+	\usebibmacro{issue+date}%
+	\setunit*{\addsemicolon\addspace}%
+	\usebibmacro{volume+number+eid}%
+	\usebibmacro{issue}%
 \newunit}
