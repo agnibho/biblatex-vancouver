@@ -39,7 +39,7 @@
 % Remove unwanted punctuations
 \renewcommand*{\revsdnamepunct}{}
 \renewcommand*{\finentrypunct}{}
-\renewcommand*{\bibpagespunct}{\addspace}
+\renewcommand*{\bibpagespunct}{}
 
 % Remove 'in:' string
 \renewbibmacro{in:}{}
@@ -74,15 +74,14 @@
 \DeclareFieldFormat*{pages}{:\mkcomprange{#1}}
 \DeclareFieldFormat*{url}{Available from: \url{#1}}
 \DeclareFieldFormat*[article]{issue}{(#1)}
-\DeclareFieldFormat*[article]{eid}{(#1)}
 \DeclareFieldFormat*{date}{
-	\thefield{year}\addspace
+	\thefield{year}%
 	\shortmonth{\thefield{month}}\addspace
 	\thefield{day}\isdot
 }
 \DeclareFieldFormat*{urldate}{
 	{[}Accessed on:
-		\thefield{urlyear}\addspace
+		\thefield{urlyear}%
 		\shortmonth{\thefield{urlmonth}}\addspace
 	\thefield{urlday}{]}
 }
